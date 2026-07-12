@@ -1,0 +1,79 @@
+/*
+ * Shared light/dark palette. Setting [data-bs-theme] on <html> also engages
+ * Bootstrap's own built-in dark-mode variable set, which is what actually
+ * fixes contrast on stock components (alerts, labels, list groups, etc.) —
+ * without it those components render with their light-mode text color
+ * regardless of our custom background.
+ */
+
+:root {
+  --app-brand: #3b82f6;
+  --app-brand-hover: #2563eb;
+}
+
+[data-bs-theme="dark"] {
+  --app-bg: #0b0f14;
+  --app-surface: #111823;
+  --app-surface-alt: #0e141b;
+  --app-border: #1c2530;
+  --app-border-strong: #26313f;
+  --app-text: #e8edf2;
+  --app-text-muted: #9aa8b6;
+  --app-link: #7db1ff;
+  --app-input-bg: #0b0f14;
+}
+
+[data-bs-theme="light"] {
+  --app-bg: #f7f9fb;
+  --app-surface: #ffffff;
+  --app-surface-alt: #eef1f5;
+  --app-border: #e2e8f0;
+  --app-border-strong: #cbd5e1;
+  --app-text: #101828;
+  --app-text-muted: #56606c;
+  --app-link: #2563eb;
+  --app-input-bg: #ffffff;
+}
+
+body {
+  background: var(--app-bg);
+  color: var(--app-text);
+}
+
+a { color: var(--app-link); }
+
+.navbar { background: var(--app-bg); border-bottom: 1px solid var(--app-border); }
+
+.theme-toggle {
+  background: transparent;
+  border: 1px solid var(--app-border-strong);
+  color: var(--app-text);
+  border-radius: .4rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.theme-toggle:hover { border-color: var(--app-brand); }
+
+.btn-outline-app {
+  border: 1px solid var(--app-border-strong);
+  color: var(--app-text);
+  background: transparent;
+}
+.btn-outline-app:hover {
+  border-color: var(--app-brand);
+  color: var(--app-text);
+  background: transparent;
+}
+
+/* Bootstrap's .btn-close ships a dark X meant for light backgrounds;
+   invert it in dark mode instead of hardcoding .btn-close-white in markup. */
+[data-bs-theme="dark"] .btn-close {
+  filter: invert(1) grayscale(100%) brightness(200%);
+}

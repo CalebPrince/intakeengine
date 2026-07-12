@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Intake &amp; Booking Engine for Independent Practices</title>
+<script>
+  (function () {
+    var t = localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+    document.documentElement.setAttribute('data-bs-theme', t);
+  })();
+</script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="/css/theme.css" rel="stylesheet">
+<style>
+  .hero { padding:6rem 0 4rem; }
+  .hero h1 { font-weight:700; letter-spacing:-0.02em; }
+  .hero .lead { color:var(--app-text-muted); }
+  .btn-brand { background:var(--app-brand); color:#fff; border:none; }
+  .btn-brand:hover { background:var(--app-brand-hover); color:#fff; }
+  .card-plan { background:var(--app-surface); border:1px solid var(--app-border); color:var(--app-text); }
+  .card-plan.featured { border-color:var(--app-brand); box-shadow:0 0 0 1px var(--app-brand); }
+  .price { font-size:2.5rem; font-weight:700; }
+  .section-muted { background:var(--app-surface-alt); }
+  .text-muted-2 { color:var(--app-text-muted); }
+  footer { color:var(--app-text-muted); border-top:1px solid var(--app-border); }
+  .step-number { width:2.5rem; height:2.5rem; border-radius:50%; background:var(--app-brand); color:#fff; font-weight:700; display:flex; align-items:center; justify-content:center; }
+  .accordion-item { background:var(--app-surface); border:1px solid var(--app-border); }
+  .accordion-button { background:var(--app-surface); color:var(--app-text); }
+  .accordion-button:not(.collapsed) { background:var(--app-surface); color:var(--app-brand); box-shadow:none; }
+</style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="/">IntakeEngine</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMain">
+      <ul class="navbar-nav me-auto ms-lg-4 mt-3 mt-lg-0 gap-lg-3">
+        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="/about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="/#pricing">Pricing</a></li>
+        <li class="nav-item"><a class="nav-link" href="/contact.html">Contact</a></li>
+      </ul>
+      <div class="d-flex gap-2 align-items-center mt-3 mt-lg-0">
+        <button type="button" class="theme-toggle" data-theme-toggle aria-label="Toggle theme">🌙</button>
+        <a href="/login.html" class="btn btn-outline-app btn-sm">Sign in</a>
+        <a href="/register.html" class="btn btn-brand btn-sm">Get started free</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<header class="hero text-center">
+  <div class="container" style="max-width:760px;">
+    <h1 class="display-4">A booking system that loads before you finish clicking.</h1>
+    <p class="lead mt-3">
+      Zero-bloat intake &amp; appointment booking for clinics, law firms and salons.
+      No app to install, no page-weight to wait on — just a static page, a fast API,
+      and a workspace that's entirely yours.
+    </p>
+    <div class="d-flex justify-content-center gap-3 mt-4">
+      <a href="/register.html" class="btn btn-brand btn-lg px-4">Create your workspace</a>
+      <a href="#pricing" class="btn btn-outline-app btn-lg px-4">See pricing</a>
+    </div>
+    <p class="text-muted-2 mt-3 small">Live in under a minute. Your own subdomain, your own isolated database.</p>
+  </div>
+</header>
+
+<section class="section-muted py-5">
+  <div class="container">
+    <div class="row g-4 text-center">
+      <div class="col-md-4">
+        <h5>Physically isolated data</h5>
+        <p class="text-muted-2">Every business gets its own SQLite file on disk — not a shared table with a tenant flag. Your clients' intake data never touches anyone else's.</p>
+      </div>
+      <div class="col-md-4">
+        <h5>Forms that fit your practice</h5>
+        <p class="text-muted-2">Build custom intake questions — text, dropdowns, file uploads — and reorder them until the flow matches how you actually work.</p>
+      </div>
+      <div class="col-md-4">
+        <h5>One registry, zero chaos</h5>
+        <p class="text-muted-2">Every submission lands in a live registry: accept, reschedule, or cancel in one click, with the full intake response one click away.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-5">How it works</h2>
+    <div class="row g-4">
+      <div class="col-md-4 text-center">
+        <div class="step-number mx-auto mb-3">1</div>
+        <h5>Claim your subdomain</h5>
+        <p class="text-muted-2">Pick a business name and a subdomain — your workspace is provisioned instantly with its own isolated database.</p>
+      </div>
+      <div class="col-md-4 text-center">
+        <div class="step-number mx-auto mb-3">2</div>
+        <h5>Build your intake form</h5>
+        <p class="text-muted-2">Add the questions you actually need — text, dropdowns, file uploads — and publish it in a click.</p>
+      </div>
+      <div class="col-md-4 text-center">
+        <div class="step-number mx-auto mb-3">3</div>
+        <h5>Share your booking link</h5>
+        <p class="text-muted-2">Clients submit requests straight into your live registry. Accept, reschedule, or cancel — no extra tools needed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing" class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-1">Simple, transparent pricing</h2>
+    <p class="text-center text-muted-2 mb-5">Start free. Upgrade when your workspace needs more room.</p>
+    <div class="row g-4 justify-content-center">
+
+      <div class="col-md-4">
+        <div class="card card-plan h-100 p-4">
+          <h5>Starter</h5>
+          <div class="price">$0<span class="fs-6 text-muted-2">/mo</span></div>
+          <ul class="list-unstyled text-muted-2 mt-3">
+            <li class="mb-2">✓ 1 team member</li>
+            <li class="mb-2">✓ Up to 5 custom intake fields</li>
+            <li class="mb-2">✓ Default *.localhost subdomain</li>
+            <li class="mb-2">✓ Live intake registry</li>
+          </ul>
+          <a href="/register.html" class="btn btn-outline-app mt-auto">Start free</a>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card card-plan featured h-100 p-4">
+          <span class="badge bg-primary mb-2 align-self-start">Most popular</span>
+          <h5>Pro</h5>
+          <div class="price">$49<span class="fs-6 text-muted-2">/mo</span></div>
+          <ul class="list-unstyled text-muted-2 mt-3">
+            <li class="mb-2">✓ Unlimited team members</li>
+            <li class="mb-2">✓ Unlimited custom fields</li>
+            <li class="mb-2">✓ Custom branded subdomain</li>
+            <li class="mb-2">✓ Advanced webhooks</li>
+          </ul>
+          <a href="/register.html" class="btn btn-brand mt-auto">Start Pro trial</a>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card card-plan h-100 p-4">
+          <h5>Enterprise</h5>
+          <div class="price">Custom</div>
+          <ul class="list-unstyled text-muted-2 mt-3">
+            <li class="mb-2">✓ Everything in Pro</li>
+            <li class="mb-2">✓ Dedicated support channel</li>
+            <li class="mb-2">✓ Custom analytics metrics</li>
+            <li class="mb-2">✓ SLA &amp; onboarding assistance</li>
+          </ul>
+          <a href="/contact.html" class="btn btn-outline-app mt-auto">Talk to sales</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section-muted py-5">
+  <div class="container" style="max-width:760px;">
+    <h2 class="text-center mb-5">Frequently asked questions</h2>
+    <div class="accordion" id="faqAccordion">
+
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+            Is my clients' data really isolated from other businesses?
+          </button>
+        </h2>
+        <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+          <div class="accordion-body text-muted-2">
+            Yes. Every workspace gets its own SQLite file on disk at signup — not a shared table with a
+            tenant column. There is no query path from one business's data into another's.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+            Can I change my plan later?
+          </button>
+        </h2>
+        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body text-muted-2">
+            Yes, upgrades and downgrades take effect immediately from the platform admin console —
+            no waiting on a support ticket.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+            Do I need to install anything?
+          </button>
+        </h2>
+        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body text-muted-2">
+            No. Your workspace and your clients' booking page are both plain web pages — nothing to
+            download, no app, no browser extension.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+            What happens if I need help?
+          </button>
+        </h2>
+        <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body text-muted-2">
+            Reach out any time through the <a href="/contact.html">contact page</a> — Pro and Enterprise
+            plans include priority and dedicated support channels respectively.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="py-4 text-center small">
+  <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+    <span>IntakeEngine — built on plain PHP + SQLite, zero dependencies.</span>
+    <span class="d-flex gap-3">
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+      <a href="/admin.html">Platform admin</a>
+    </span>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/js/theme.js"></script>
+</body>
+</html>
