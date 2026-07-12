@@ -7,8 +7,11 @@
  */
 
 :root {
-  --app-brand: #3b82f6;
-  --app-brand-hover: #2563eb;
+  /* Dark navy brand blue — buttons carry white text, so one shade works
+     across both themes without a contrast problem. */
+  --app-brand: #1e3a8a;
+  --app-brand-hover: #16295e;
+  --app-brand-rgb: 30, 58, 138;
 }
 
 [data-bs-theme="dark"] {
@@ -19,7 +22,9 @@
   --app-border-strong: #26313f;
   --app-text: #e8edf2;
   --app-text-muted: #9aa8b6;
-  --app-link: #7db1ff;
+  /* A lighter tint of the same navy hue — pure navy text on a near-black
+     background fails contrast, so dark mode gets a brighter cousin. */
+  --app-link: #6ea8fe;
   --app-input-bg: #0b0f14;
 }
 
@@ -31,7 +36,7 @@
   --app-border-strong: #cbd5e1;
   --app-text: #101828;
   --app-text-muted: #56606c;
-  --app-link: #2563eb;
+  --app-link: #1e3a8a;
   --app-input-bg: #ffffff;
 }
 
@@ -77,3 +82,5 @@ a { color: var(--app-link); }
 [data-bs-theme="dark"] .btn-close {
   filter: invert(1) grayscale(100%) brightness(200%);
 }
+
+.badge-brand { background: var(--app-brand); color: #fff; }
